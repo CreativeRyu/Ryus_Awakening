@@ -9,6 +9,8 @@ class Game:
         self.game_screen = pygame.display.set_mode((gs.WIDTH, gs.HEIGHT))
         pygame.display.set_caption("Ryu's Awakening")
         self.game_clock = pygame.time.Clock()
+        
+        self.level = Level(self.game_screen)
     
     def execute_gameloop(self):
         while True:
@@ -18,6 +20,7 @@ class Game:
                     sys.exit()
             
             self.game_screen.fill("black")
+            self.level.run()
             pygame.display.update()
             self.game_clock.tick(gs.FPS)
 
