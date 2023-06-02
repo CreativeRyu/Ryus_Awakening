@@ -8,7 +8,7 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.image.load("graphix/test/player.png").convert_alpha()
         image_size = pygame.math.Vector2(self.image.get_size()) * 3
         scaled_image = pygame.transform.scale(self.image, (image_size))
-        self.image = scaled_image 
+        self.image = scaled_image
         # scaledimg muss wieder auf self.image gesetzt werden, sonst keine Skalierung
         self.rect = self.image.get_rect(topleft = position)
         
@@ -33,6 +33,8 @@ class Player(pygame.sprite.Sprite):
             self.direction.x = 0
             
     def move(self):
+        if self.direction.magnitude() != 0:
+            self.direction = self.direction.normalize()
         self.rect.center += self.direction * self.speed
         
     def update(self):
