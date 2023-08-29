@@ -7,7 +7,7 @@ class Game:
     def __init__(self) -> None:
         pygame.init()
         self.game_screen = pygame.display.set_mode((gs.WIDTH, gs.HEIGHT))
-        pygame.display.set_caption("Ryu's Awakening")
+        pygame.display.set_caption("Bromingos")
         self.game_clock = pygame.time.Clock()
         
         self.level = Level(self.game_screen)
